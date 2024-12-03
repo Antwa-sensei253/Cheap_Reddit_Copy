@@ -1,0 +1,38 @@
+{% extends "base.html" %} {%block title%}boards.name{%endblock%} 
+{%block breadcrumb%}
+<li class="breadcrumb-item active">
+  <a href="{% url 'home' %}"> Boards</a> / {{board.name}}
+</li>
+{%endblock%}
+ {%block content%}
+<a class="btn btn-dark my-4 " href="{% url 'new_topic' board.pk %}"> New Post</a>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Topics</th>
+      <th>Created by</th>
+      <th>Posts</th>
+      <th>Views</th>
+      <th>Create_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for topic in board.topics.all%}
+    <tr>
+      <td>{{topic.subject}}</td>
+      {% comment %} 
+      I did not understand the relation that much 
+      {% endcomment %}
+
+      <td>{{topic.created_by.username}}</td>
+      
+      <td>0</td>
+      <td>0</td>
+      <td>{{topic.created_date}}</td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+{%endblock%}
