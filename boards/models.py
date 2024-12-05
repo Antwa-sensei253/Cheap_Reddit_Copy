@@ -15,4 +15,9 @@ class Post(models.Model):
     topic = models.ForeignKey(Topic, related_name='posts',on_delete=models.CASCADE)
     created_by = models.ForeignKey(User,related_name='posts',on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
- 
+
+class User_data(models.Model):
+    name = models.CharField(max_length=150)
+    gmail = models.CharField(max_length=150)
+    creation_date = models.DateTimeField(auto_now_add = True)
+    
