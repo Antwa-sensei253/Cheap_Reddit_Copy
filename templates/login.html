@@ -2,13 +2,13 @@
 
     {%block body%}
 
-    <h1>Signup</h1>
+    <h1>Login</h1>
 
     <form method="post" novalidate>
     
         {%csrf_token%}
         {% include "includes/form.html" %}
-        <button type="submit" class="btn btn-primary">Create new User</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
     {%endblock%}
     
