@@ -42,3 +42,4 @@ def new_topic(request, board_name):
     except Board.DoesNotExist:
         raise Http404
     return render(request, 'new_topic.html', {'board': board, 'form': form})
+

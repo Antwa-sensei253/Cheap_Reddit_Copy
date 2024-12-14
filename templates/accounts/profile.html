@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{%block title%}Profile{%endblock%}
+
+{%block breadcrumb%}
+<li class="breadcrumb-item active">Profile</li>
+{%endblock%} 
+
+{%block content%}
+<div class = "container border-1">
+<h1>{{user.username}}</h1>
+<h4>{{User_data.email}}</h4>
+<h4>{{User_data.creation_date}}</h4>
+</div>
+
+{%endblock%}

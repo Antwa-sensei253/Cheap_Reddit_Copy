@@ -5,7 +5,8 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('about/',views.about,name='about'),
     path('<int:board_name>/',views.board_topic,name = 'board_topics'),
-    path('<int:board_name>/new/',views.new_topic,name = 'new_topic')
+    path('<int:board_name>/new/',views.new_topic,name = 'new_topic'),
+
 
 
 ]

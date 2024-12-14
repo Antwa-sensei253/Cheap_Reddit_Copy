@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+    {%block body%}
+
+    <h1>Login</h1>
+
+    <form method="post" novalidate>
+    
+        {%csrf_token%}
+        {% include "includes/form.html" %}
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </form>
+    {%endblock%}
+    
