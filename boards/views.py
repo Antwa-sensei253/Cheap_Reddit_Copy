@@ -4,6 +4,7 @@ from .models import Board
 from django.contrib.auth.models import User
 from .models import Topic, Post
 from .forms import NewTopicFrom
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     boards = Board.objects.all()
@@ -18,6 +19,7 @@ def board_topic(request,board_name):
     except Board.DoesNotExist:
         raise Http404
     return render(request,'topics.html',{'board': board})
+@login_required
 def new_topic(request, board_name):
     try:
         board = Board.objects.get(pk=board_name)
@@ -28,12 +30,12 @@ def new_topic(request, board_name):
             if form.is_valid():
                 topic = form.save(commit=False)
                 topic.board = board
-                topic.created_by = user
+                topic.created_by =request.user
                 topic.save()
 
                 post = Post.objects.create(
                     message=form.cleaned_data.get('message'),
-                    created_by=user,
+                    created_by=request.user,
                     topic=topic
                 )
                 return redirect('board_topics', board_name=board.pk)
