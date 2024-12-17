@@ -1,15 +1,43 @@
-{% extends 'base.html'%}
-{%block title%}Profile{%endblock%}
-
-{%block breadcrumb%}
-<li class="breadcrumb-item active">Profile</li>
-{%endblock%} 
-
-{%block content%}
-<div class = "container border-1">
-<h1>{{user.username}}</h1>
-<h4>{{User_data.email}}</h4>
-<h4>{{User_data.creation_date}}</h4>
-</div>
-
-{%endblock%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-info {
+            margin: 20px 0;
+        }
+        .profile-info p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile Page</h1>
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Account Created:</strong> {{ user.creation_date }}</p>
+            
+        </div>
+    </div>
+</body>
+</html>

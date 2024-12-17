@@ -5,7 +5,7 @@
 </li>
 {%endblock%}
  {%block content%}
-<a class="btn btn-dark my-4 " href="{% url 'new_topic' board.pk %}"> New Post</a>
+<a class="btn btn-dark my-4 " href="{% url 'new_topic' board.name %}"> New Topic</a>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -17,17 +17,17 @@
     </tr>
   </thead>
   <tbody>
-    {%for topic in board.topics.all%}
+    {%for topic in topics%}
     <tr>
-      <td>{{topic.subject}}</td>
+      <td><a class=""href="{%url 'topic_posts' board.name topic.subject%}">{{topic.subject}}</a></td>
       {% comment %} 
       I did not understand the relation that much 
       {% endcomment %}
 
       <td>{{topic.created_by.username}}</td>
       
-      <td>0</td>
-      <td>0</td>
+      <td>{{topic.replies}}</td>
+      <td>{{topic.views}}</td>
       <td>{{topic.created_date}}</td>
 
     </tr>

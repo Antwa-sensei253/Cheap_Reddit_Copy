@@ -11,8 +11,8 @@
   <thead>
     <tr>
       <th>Board</th>
-      <th>Posts</th>
       <th>Topic</th>
+      <th>Posts</th>
       <th>Last Post</th>
     </tr>
   </thead>
@@ -20,14 +20,29 @@
     {%for board in boards%}
     <tr>
       <td>
-        <a href="{% url 'board_topics' board.pk %}"> {{board.name}}</a>
+        <a href="{% url 'board_topics' board.name %}"> {{board.name}}</a>
         <p class="">{{board.desc}}</p>
       </td>
-      <br />
+      <td>
+        <p class="">{{board.topics.count}}</p>
+      </td>
+      <td>
+        <p class="">{{board.count_posts}}</p>
+      </td>
 
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>
+        {% with post=board.get_last_post %}
+        {% if post %}
+        <p>
+          {{ post.created_by.username }}<br />
+          {{ post.created_date }}
+        </p>
+        {% else %}
+        <p>No posts yet</p>
+        {% endif %}
+        {% endwith %}
+      </td>
+      <br />
     </tr>
     {%endfor%}
   </tbody>
