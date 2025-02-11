@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'discuss_board.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Boards_dj',
+        'NAME': 'boards',
         'USER': 'postgres',
-        'PASSWORD': 'antwa',
+        'PASSWORD': 'ahmed',
         'HOST': 'localhost',
         'PORT': '5432',
     }

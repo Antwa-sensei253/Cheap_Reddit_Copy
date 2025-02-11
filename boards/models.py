@@ -27,7 +27,9 @@ class Post(models.Model):
     topic = models.ForeignKey(Topic, related_name='posts',on_delete=models.CASCADE)
     created_by = models.ForeignKey(User,related_name='posts',on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
+    updated_by = models.ForeignKey(User,null=True,related_name='+',on_delete=models.CASCADE)
+    updated_dt = models.DateTimeField(null=True)
+    def __str__(self): 
         return Truncator(self.message).chars(30) 
 
 class User_data(models.Model):
